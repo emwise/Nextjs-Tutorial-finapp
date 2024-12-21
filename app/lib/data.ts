@@ -12,14 +12,15 @@ import { formatCurrency } from './utils';
 export async function fetchRevenue() {
   try {
     // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
+    // This shows that when using dynamic rendering your webpage
+    // is only as fast as its slowest data fetch.
 
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-    // console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -60,6 +61,9 @@ export async function fetchCardData() {
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
          FROM invoices`;
 
+    // This is an example of parallel data fetching. Instead of awaiting each indivudal request
+    // Promise.all() initiates all the promises at the same time. 
+    // This can save time/increase performance, and is a native js pattern
     const data = await Promise.all([
       invoiceCountPromise,
       customerCountPromise,

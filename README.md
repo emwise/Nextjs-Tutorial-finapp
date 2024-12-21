@@ -1,6 +1,6 @@
 ## Next.js App Router Course - Starter
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+The culmination of NextJS's course creating the dashboard application.
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
@@ -38,3 +38,9 @@ Config Files: You'll also notice config files such as next.config.js at the root
 
 pnpm i #installs the dependancies 
 pnpm dev starts running the files in http://localhost:3000
+
+## 
+
+To sign in...
+Email: user@nextmail.com
+Password: 123456
